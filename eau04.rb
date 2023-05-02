@@ -13,12 +13,13 @@ def find_fibonacci_number(element)
         end
         puts array_fibonacci[element.to_i]
     end
-
 end
 
 def check_argument(arguments)
     if arguments.size > 1
         puts 'Too many arguments'
+    elsif arguments.size < 1
+        puts 'Need an argument'
     else
         if !arguments[0].scan(/^\d+$/).any? or arguments[0].to_i < 0
             puts '-1'
