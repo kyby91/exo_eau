@@ -1,17 +1,12 @@
 #Next prime number
 def verifyIfNumberFirst (number)
-    x = number
-    if x < 0
-        puts "Can't be inferior to 0"
-    elsif x < 3 
-        puts "#{x} n'est pas un nombre premier"
-    elsif x == 3
-        puts "#{x} est un nombre premier"
+    if number < 3 
+        puts '3'
     else
         i = 2
         result = ''
-        while i <= Math.sqrt(x)
-            if x % i == 0
+        while i <= Math.sqrt(number)
+            if number % i == 0
                 result = 'false'
                 break
             else
@@ -20,16 +15,16 @@ def verifyIfNumberFirst (number)
             end
         end
         if result == 'false'
-            find_next_prime_number(x + 1)
+            find_next_prime_number(number)
         else
-            puts "#{x}"
+            puts "#{number}"
+            exit(1)
         end
     end
 end
 
-
 def find_next_prime_number(element)
-    x = element.to_i
+    x = element + 1
     verifyIfNumberFirst(x)
 end
 
@@ -42,7 +37,7 @@ def check_argument(arguments)
         if !arguments[0].scan(/^\d+$/).any? or arguments[0].to_i < 0
             puts '-1'
         else
-            find_next_prime_number(arguments[0])
+            find_next_prime_number(arguments[0].to_i)
         end
     end
 end
