@@ -1,5 +1,5 @@
 #Next prime number
-def verifyIfNumberFirst (number)
+def verify_if_number_first (number)
     if number < 3 
         puts '3'
     else
