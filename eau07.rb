@@ -3,9 +3,9 @@
 def uppercase_one_on_two(element)
     i = 0
     j = element.size
-    k = 1
+    k = 1 #permet de gérer les caractères non lettres, éviter de faire un upcase dans le vide
     word_uppercase = ''
-    
+
     while i < j
         if element[i].scan(/\w/).any?
             if k.odd?
