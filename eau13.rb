@@ -1,21 +1,19 @@
-#smallest difference
-def find_the_smallest_difference(element)
-    i = 1
-    j = element.size - 1
+#Tri à bulle
 
-    sorted_array = element.sort
-    smallest = sorted_array[1] - sorted_array[0]
+def my_bubble_sort(array)
+    loop do
+        is_sort = false
 
-    while i < j
-        result = sorted_array[i+1] - sorted_array[i]
-
-        if result < smallest
-            smallest = result.abs
+        (array.length - 1).times do |i|
+            if array[i] > array[i+1]
+                array[i], array[i+1] = array[i+1], array[i]
+                is_sort = true
+            end
         end
-        i += 1        
+        break if not is_sort
     end
 
-    puts smallest
+    puts array
 end
 
 def check_arguments(arguments)
@@ -33,7 +31,7 @@ def check_arguments(arguments)
             end
         end
         numbers = arguments.map(&:to_i)
-        find_the_smallest_difference(numbers)
+        my_bubble_sort(numbers)
     end
 end
 
